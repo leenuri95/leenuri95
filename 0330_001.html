@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #window {
+            width: 300px;
+            height: 200px;
+            /* border: 1px solid red; */
+            position: relative;
+            margin: auto;
+            margin-top: 100px;
+            overflow: hidden;
+        }
+
+        #wrapper {
+            width: 1200px;
+            height: 200px;
+            /* border: 1px solid blue; */
+            position: absolute;
+            left: 0;
+        }
+
+        .cls001 {
+            width: 300px;
+            height: 200px;
+            background: rgb(205, 240, 152);
+            font-size: 1.25em;
+            font-weight: 600;
+            line-height: 200px;
+            text-align: center;
+        }
+
+        .cls002 {
+            width: 300px;
+            height: 200px;
+            background: pink;
+            font-size: 1.25em;
+            font-weight: 600;
+            line-height: 200px;
+            text-align: center;
+        }
+
+        .cls003 {
+            width: 300px;
+            height: 200px;
+            background: gray;
+            font-size: 1.25em;
+            font-weight: 600;
+            line-height: 200px;
+            text-align: center;
+        }
+
+        #wrapper>div {
+            float: left;
+        }
+
+        .box1, .box2 {
+            width: 30px;
+            height: 70px;
+            background: #555;
+            font-size: 1.5em;
+            color: #fff;
+            position: absolute;
+        } 
+
+        .box1 {
+            left: 650px;
+            top: 170px;
+        }
+
+        .box2 {
+            left: 920px;
+            top: 170px;
+        }
+    </style>
+    <script>
+        $(function () {
+            var a = 0;
+
+            setInterval(function () {
+                a++;
+                if (a < 4) {
+                    $("#wrapper").animate({ "left": "-=300px" }, 1000);
+                    console.log(a);
+                } else {
+                    a = 0;
+                    $("#wrapper").animate({ "left": "0px" }, 0);
+                    console.log(a);
+                }
+            }, 4000);
+
+            $(".box1").click(function(){
+                $("#wrapper").animate({ "left": "-=300px" }, 1000);
+            });
+            $(".box2").click(function(){
+                $("#wrapper").animate({ "left": "0px" }, 0);
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div id="window">
+        <div id="wrapper">
+            <div class="cls001">SLIDE1</div>
+            <div class="cls002">SLIDE2</div>
+            <div class="cls003">SLIDE3</div>
+            <div class="cls001">SLIDE1</div>
+        </div>
+    </div>
+    <button class="box1">◁</button>
+    <button class="box2">▷</button>
+</body>
+
+</html>
